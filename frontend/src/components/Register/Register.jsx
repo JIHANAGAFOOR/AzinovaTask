@@ -1,7 +1,8 @@
 import {useState} from 'react'
 import axios from 'axios';
 import { useNavigate ,Link} from "react-router-dom";
-import {Form , Button} from 'react-bootstrap'
+import {Form , Button,Col,Row,Container} from 'react-bootstrap'
+
 export default function Register() {
     const [add,setAdd]=useState({
         name:"",
@@ -38,7 +39,11 @@ export default function Register() {
     
   return (
     <div>
-    <div style={{width:500,alignItems:"center",display:"flex",justifyContent:"center",border:"1px solid black",padding:20}}>
+    <Container>
+    <Row>
+    <Col lg={4}></Col>
+    <Col lg={4}>
+    <div style={{border:"1px solid black",padding:20}}>
     <Form  method="post" onSubmit={Add}>
     <Form.Group className="mb-3" >
       {/* <Form.Label>Email address</Form.Label> */}
@@ -75,6 +80,11 @@ export default function Register() {
     <p> <Link to="/">Already Have an account</Link></p>
   </Form>
     </div>
+    </Col>
+    <Col lg={4}></Col>
+    </Row>
+    </Container>
+    
     </div>
   )
 }

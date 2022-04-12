@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import { useNavigate ,Link} from "react-router-dom";
-import {Form , Button} from 'react-bootstrap'
+import {Form , Button,Col,Row,Container} from 'react-bootstrap'
 import axios from 'axios';
 function Login() {
     const [login,setLogin]=useState({
@@ -35,8 +35,12 @@ function Login() {
         
         }
   return (
-    <div style={{width:500,alignItems:"center",display:"flex",justifyContent:"center",border:"1px solid black",padding:20}}>
-    <Form method="post" onSubmit={Login}>
+    <div>
+    <Container>
+    <Row>
+    <Col lg={4}></Col>
+    <Col lg={4}  style={{border:"1px solid black",padding:20}}>
+    <Form method="post" onSubmit={Login} >
     <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Control type="email" placeholder="Enter email" name="email" onChange={handleChange} value={login.email}/>
     <Form.Text className="text-muted">
@@ -56,6 +60,10 @@ function Login() {
     </Button>
    <p> <Link to="/register">Add an Account</Link></p>
   </Form>
+    </Col>
+    <Col lg={4}></Col>
+    </Row></Container>
+   
     </div>
   )
 }
